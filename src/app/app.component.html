@@ -1,0 +1,10 @@
+<h1>Hi! {{count}}</h1>
+<h2>this is {{lastElementCreated}}</h2>
+<app-test 
+[inputValue]="'hello'" 
+(childClicked)="handleChildClicked()"
+(elementCreated)="displayLastElement($event)"
+>
+</app-test>
+<router-outlet />
+ 

@@ -1,0 +1,6 @@
+<input type="text" [(ngModel)]="inputValue">
+<button (click)="click()"> Click here!</button>
+<!-- trying ngIf directive  -->
+<p *ngIf="displayMessage">Trying interpolation : {{inputValue}}</p>
+<!-- trying ngFor directive -->
+ <p *ngFor="let msg of msgList">{{msg}}</p>
