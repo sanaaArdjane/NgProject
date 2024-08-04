@@ -4,11 +4,12 @@ import { TestComponent } from "./test/test.component";
 import { CalculatorComponent } from "./calculator/calculator.component";
 import { ItemListComponent } from "./item-list/item-list.component";
 import { StarRatingComponent } from "./star-rating/star-rating.component";
+import { ObservableComponent } from "./observable/observable.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TestComponent, CalculatorComponent, ItemListComponent, StarRatingComponent],
+  imports: [RouterOutlet, TestComponent, CalculatorComponent, ItemListComponent, StarRatingComponent, ObservableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 
