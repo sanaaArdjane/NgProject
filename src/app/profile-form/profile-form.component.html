@@ -1,0 +1,47 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label for="firstName">First Name:</label>
+  <input id="firstName"    formControlName="firstName">
+  <div *ngIf="profileForm.get('firstName')?.invalid && profileForm.get('firstName')?.touched">
+    First Name is required.
+  </div>
+
+  <label for="lastName">Last Name:</label>
+  <input id="lastName" formControlName="lastName">
+  <div *ngIf="profileForm.get('lastName')?.invalid && profileForm.get('lastName')?.touched">
+    Last Name is required.
+  </div>
+
+  <div formArrayName="addresses">
+    <div *ngFor="let address of addresses.controls; let i = index" [formGroupName]="i">
+      <h3>Address {{ i + 1 }}</h3>
+      <label for="street">Street:</label>
+      <input id="street" formControlName="street">
+      <div *ngIf="address.get('street')?.invalid && address.get('street')?.touched">
+        Street is required.
+      </div>
+
+      <label for="city">City:</label>
+      <input id="city" formControlName="city">
+      <div *ngIf="address.get('city')?.invalid && address.get('city')?.touched">
+        City is required.
+      </div>
+
+      <label for="state">State:</label>
+      <input id="state" formControlName="state">
+      <div *ngIf="address.get('state')?.invalid && address.get('state')?.touched">
+        State is required.
+      </div>
+
+      <label for="zip">Zip:</label>
+      <input id="zip" formControlName="zip">
+      <div *ngIf="address.get('zip')?.invalid && address.get('zip')?.touched">
+        Zip is required.
+      </div>
+
+      <button (click)="removeAddress(i)">Remove Address</button>
+    </div>
+  </div>
+
+  <button type="button" (click)="addAddress()">Add Address</button>
+  <button type="submit" [disabled]="profileForm.invalid">Submit</button>
+</form>
